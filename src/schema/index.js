@@ -127,44 +127,44 @@ class _Answers extends _boilerplateBase._Queryable_ {
         return new _Answers(this.ref, "self", args);
     }
 
-    user_id(args) {
-        return new _boilerplateBase._Int_(this.ref, "user_id", args);
+    userID(args) {
+        return new _boilerplateBase._Int_(this.ref, "userID", args);
     }
 
-    user_type(args) {
-        return new _boilerplateBase._String_(this.ref, "user_type", args);
+    userType(args) {
+        return new _boilerplateBase._String_(this.ref, "userType", args);
     }
 
-    accept_rate(args) {
-        return new _boilerplateBase._Int_(this.ref, "accept_rate", args);
+    acceptRate(args) {
+        return new _boilerplateBase._Int_(this.ref, "acceptRate", args);
     }
 
-    profile_image(args) {
-        return new _boilerplateBase._String_(this.ref, "profile_image", args);
+    profileImage(args) {
+        return new _boilerplateBase._String_(this.ref, "profileImage", args);
     }
 
-    display_name(args) {
-        return new _boilerplateBase._String_(this.ref, "display_name", args);
+    displayName(args) {
+        return new _boilerplateBase._String_(this.ref, "displayName", args);
     }
 
-    is_accepted(args) {
-        return new _boilerplateBase._Boolean_(this.ref, "is_accepted", args);
+    isAccepted(args) {
+        return new _boilerplateBase._Boolean_(this.ref, "isAccepted", args);
     }
 
-    last_activity_date(args) {
-        return new _boilerplateBase._Int_(this.ref, "last_activity_date", args);
+    lastActivityDate(args) {
+        return new _boilerplateBase._Int_(this.ref, "lastActivityDate", args);
     }
 
-    creation_date(args) {
-        return new _boilerplateBase._Int_(this.ref, "creation_date", args);
+    creationDate(args) {
+        return new _boilerplateBase._Int_(this.ref, "creationDate", args);
     }
 
-    answer_id(args) {
-        return new _boilerplateBase._Int_(this.ref, "answer_id", args);
+    answerID(args) {
+        return new _boilerplateBase._Int_(this.ref, "answerID", args);
     }
 
-    question_id(args) {
-        return new _boilerplateBase._Int_(this.ref, "question_id", args);
+    questionID(args) {
+        return new _boilerplateBase._Int_(this.ref, "questionID", args);
     }
 }
 
