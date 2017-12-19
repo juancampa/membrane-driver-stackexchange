@@ -3,10 +3,11 @@ const { environment, schema } = program;
 program.name = 'stackoverflow';
 
 schema.type('Root')
-  .field('questions', 'QuestionCollection', 'answers', 'AnswerCollection')
+  .field('questions', 'QuestionCollection')
+  .field('answers', 'AnswerCollection')
 
 schema.type('Answers')
-  .computed('self', 'Questions*') 
+  .computed('self', 'Answers*') 
   .field('score', 'Int')
   .computed('user_id', 'Int')
   .computed('user_type', 'String')

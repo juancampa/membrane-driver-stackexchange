@@ -2,10 +2,9 @@ import { root } from './schema';
 import * as client from './client';
 
 export const init = () => {
-  root.set({ Questions: {}});
-  root.set({ Answers:{} });
-  return root;
-  //return root.set({ questions: {} });
+  return root.set({ Questions: {}, answers:{} });
+  //root.set({ answers:{} });
+  //return root;
 }
 
 export const QuestionCollection = {
@@ -15,18 +14,20 @@ export const QuestionCollection = {
     //${args.id}
     ///2.2/questions/${args.id}?order=desc&sort=activity&site=stackoverflow
     const result = await client.get(`/questions/${args.id}?order=desc&sort=activity&site=stackoverflow`);
-    return result;
+    return result.items[0];
   },
   async items() {
     // ? how's this URL gonna end up?
-    return client.get(`/questions?order=desc&sort=activity&site=stackoverflow`);
+    const result = await client.get(`/questions?order=desc&sort=activity&site=stackoverflow`);
+    return result.items;
+
   },
 }
 
 export const AnswerCollection = {
   async one({ args }) {
     const result = await client.get(`/answers/${args.id}?order=desc&sort=activity&site=stackoverflow`);
-    return result;//en el caso de coinmarketcap 
+    return result;
   },
   async items() {
     // ? how's this URL gonna end up?

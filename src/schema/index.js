@@ -110,6 +110,82 @@ class _QuestionCollection extends _boilerplateBase._Queryable_ {
     }
 }
 
+class _Answers extends _boilerplateBase._Queryable_ {
+    constructor(ref, name, args) {
+        super(ref, name, args);
+    }
+
+    get score() {
+        return new _boilerplateBase._Int_(this.ref, "score");
+    }
+
+    self(args) {
+        return new _Answers(this.ref, "self", args);
+    }
+
+    user_id(args) {
+        return new _boilerplateBase._Int_(this.ref, "user_id", args);
+    }
+
+    user_type(args) {
+        return new _boilerplateBase._String_(this.ref, "user_type", args);
+    }
+
+    accept_rate(args) {
+        return new _boilerplateBase._Int_(this.ref, "accept_rate", args);
+    }
+
+    profile_image(args) {
+        return new _boilerplateBase._String_(this.ref, "profile_image", args);
+    }
+
+    display_name(args) {
+        return new _boilerplateBase._String_(this.ref, "display_name", args);
+    }
+
+    link(args) {
+        return new _boilerplateBase._String_(this.ref, "link", args);
+    }
+
+    is_accepted(args) {
+        return new _boilerplateBase._Boolean_(this.ref, "is_accepted", args);
+    }
+
+    score(args) {
+        return new _boilerplateBase._Int_(this.ref, "score", args);
+    }
+
+    last_activity_date(args) {
+        return new _boilerplateBase._Int_(this.ref, "last_activity_date", args);
+    }
+
+    creation_date(args) {
+        return new _boilerplateBase._Int_(this.ref, "creation_date", args);
+    }
+
+    answer_id(args) {
+        return new _boilerplateBase._Int_(this.ref, "answer_id", args);
+    }
+
+    question_id(args) {
+        return new _boilerplateBase._Int_(this.ref, "question_id", args);
+    }
+}
+
+class _AnswerCollection extends _boilerplateBase._Queryable_ {
+    constructor(ref, name, args) {
+        super(ref, name, args);
+    }
+
+    one(args) {
+        return new _Answers(this.ref, "one", args);
+    }
+
+    items(args) {
+        return new _boilerplateBase._List_(this.ref, "items", args);
+    }
+}
+
 class _Root extends _boilerplateBase._Queryable_ {
     constructor(ref, name, args) {
         super(ref, name, args);
@@ -117,6 +193,10 @@ class _Root extends _boilerplateBase._Queryable_ {
 
     get questions() {
         return new _QuestionCollection(this.ref, "questions");
+    }
+
+    get answers() {
+        return new _AnswerCollection(this.ref, "answers");
     }
 }
 
@@ -130,6 +210,14 @@ let manifest = exports.manifest = {
 
         "QuestionCollection": {
             "<self>": _QuestionCollection
+        },
+
+        "Answers": {
+            "<self>": _Answers
+        },
+
+        "AnswerCollection": {
+            "<self>": _AnswerCollection
         },
 
         "Root": {
