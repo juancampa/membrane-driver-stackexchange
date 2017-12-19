@@ -115,6 +115,10 @@ class _Answers extends _boilerplateBase._Queryable_ {
         super(ref, name, args);
     }
 
+    get link() {
+        return new _boilerplateBase._String_(this.ref, "link");
+    }
+
     get score() {
         return new _boilerplateBase._Int_(this.ref, "score");
     }
@@ -143,16 +147,8 @@ class _Answers extends _boilerplateBase._Queryable_ {
         return new _boilerplateBase._String_(this.ref, "display_name", args);
     }
 
-    link(args) {
-        return new _boilerplateBase._String_(this.ref, "link", args);
-    }
-
     is_accepted(args) {
         return new _boilerplateBase._Boolean_(this.ref, "is_accepted", args);
-    }
-
-    score(args) {
-        return new _boilerplateBase._Int_(this.ref, "score", args);
     }
 
     last_activity_date(args) {

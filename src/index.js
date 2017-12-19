@@ -32,9 +32,41 @@ export const AnswerCollection = {
   async items() {
     // ? how's this URL gonna end up?
     return client.get(`/answers?order=desc&sort=activity&site=stackoverflow`);
-  },
+  }
 }
 
-
-
-
+export const Answer = {
+  async self({ source }) {
+    return root.answers.one({ id: source.id });
+  },
+  user_id({ source }) {
+    return source['user_id'];
+  },
+  user_type({ source }) {
+    return source['user_type'];
+  },
+  accept_rate({ source }) {
+    return source['accept_rate'];
+  },
+  profile_image({ source }) {
+    return source['profile_image'];
+  },
+  display_name({ source }) {
+    return source['display_name'];
+  },
+  is_accepted({ source }) {
+    return source['is_accepted'];
+  },
+  last_activity_date({ source }) {
+    return source['last_activity_date'];
+  },
+  creation_date({ source }) {
+    return source['creation_date'];
+  },
+  answer_id({ source }) {
+    return source['answer_id'];
+  },
+  question_id({ source }) {
+    return source['question_id'];
+  }
+}
