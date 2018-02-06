@@ -1,3 +1,7 @@
+//computed = computedField; it resolves the value calling a function in the index.js
+//field; resokves the value from the source (the value of the father)
+
+
 const { environment, schema } = program;
 
 program.name = 'stackoverflow';
@@ -5,6 +9,7 @@ program.name = 'stackoverflow';
 schema.type('Root')
   .field('questions', 'QuestionCollection')
   .field('answers', 'AnswerCollection')
+  .field('threads', 'ThreadCollection')
 
 schema.type('Answers')
   .field('link', 'String')
@@ -38,8 +43,7 @@ schema.type('QuestionCollection')
     .param('id', 'String')
   .computed('items', '[Questions]')
 
-//computed = computedField; it resolves the value calling a function in the index.js
-//field; resokves the value from the source (the value of the father)
-
-
+schema.type('ThreadPage')
+  .computed('items', '[ThreadPageItem]')
+  .computed('next', 'ThreadPage*')
 

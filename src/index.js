@@ -27,11 +27,13 @@ export const QuestionCollection = {
 export const AnswerCollection = {
   async one({ args }) {
     const result = await client.get(`/answers/${args.id}?order=desc&sort=activity&site=stackoverflow`);
-    return result;
+    console.log('RESULT', result);
+    return result.items[0];
   },
   async items() {
     // ? how's this URL gonna end up?
-    return client.get(`/answers?order=desc&sort=activity&site=stackoverflow`);
+    const result = client.get(`/answers?order=desc&sort=activity&site=stackoverflow`);
+    return result.items;
   }
 }
 
@@ -70,3 +72,18 @@ export const Answers = {
     return source['question_id'];
   }
 }
+
+
+export let ThreadPage = {
+  next({ self, source }) {
+    if (source.nextPageToken === undefined) {
+      return null;
+    }
+    const args = self.match(root.threads.page());
+    return root.threads.page({ ...args, pageToken: source.nextPageToken })
+  },
+
+  items({ source }) {
+    return source.threads;
+  }
+};

@@ -1,3 +1,6 @@
+import { root, pubsub } from './schema';
+
+
 const client = require('axios').create({
   baseURL: 'https://api.stackexchange.com/2.2/',
   params: { },
@@ -19,5 +22,3 @@ export async function put(url, body, params) {
 }
 
 
-
-	
