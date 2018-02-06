@@ -1,10 +1,6 @@
 //computed = computedField; it resolves the value calling a function in the index.js
 //field; resokves the value from the source (the value of the father)
-
-
 const { environment, schema } = program;
-
-program.name = 'stackoverflow';
 
 schema.type('Root')
   .field('questions', 'QuestionCollection')
