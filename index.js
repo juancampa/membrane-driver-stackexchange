@@ -1,5 +1,5 @@
-import { root } from './schema';
 import * as client from './client';
+const { root } = program.refs;
 
 export const init = () => {
   return root.set({ Questions: {}, Answers:{} });
